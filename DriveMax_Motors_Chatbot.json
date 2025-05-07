@@ -1,0 +1,157 @@
+{
+    "name": "DriveMax Motors Chatbot",
+    "description": "A website chatbot for car inquiries, test drives, service bookings, and lead capture.",
+    "version": "1.0",
+    "nodes": [
+        {
+            "id": "start",
+            "type": "start",
+            "name": "Start",
+            "next_id": "welcome"
+        },
+        {
+            "id": "welcome",
+            "type": "message",
+            "name": "Welcome Message",
+            "message": "\ud83d\udc4b Welcome to DriveMax Motors! How can I assist you today?",
+            "next_id": "menu"
+        },
+        {
+            "id": "menu",
+            "type": "question",
+            "name": "Main Menu",
+            "question": "Please choose one of the options below:",
+            "choices": [
+                {
+                    "label": "\ud83d\ude97 Explore Car Models",
+                    "next_id": "car_models"
+                },
+                {
+                    "label": "\ud83d\udcc5 Book a Test Drive",
+                    "next_id": "test_drive"
+                },
+                {
+                    "label": "\ud83d\udcb0 Pricing & Financing Options",
+                    "next_id": "pricing"
+                },
+                {
+                    "label": "\ud83d\udee0 Schedule Service Appointment",
+                    "next_id": "service"
+                },
+                {
+                    "label": "\ud83d\udccd Locate a Dealership",
+                    "next_id": "dealership"
+                },
+                {
+                    "label": "\ud83d\udcdd Leave Feedback",
+                    "next_id": "feedback"
+                },
+                {
+                    "label": "\ud83d\udc64 Talk to a Human Agent",
+                    "next_id": "human_agent"
+                }
+            ]
+        },
+        {
+            "id": "car_models",
+            "type": "message",
+            "name": "Car Models",
+            "message": "We offer Sedans, SUVs, and Hatchbacks. Our latest models:\n\n\u2022 Sedan: DriveMax Elegance\n\u2022 SUV: DriveMax Xplore\n\u2022 Hatchback: DriveMax Zip\n\nWould you like a brochure or book a test drive?",
+            "next_id": "lead_capture"
+        },
+        {
+            "id": "test_drive",
+            "type": "message",
+            "name": "Book Test Drive",
+            "message": "Awesome! Let's book your test drive.",
+            "next_id": "lead_capture"
+        },
+        {
+            "id": "pricing",
+            "type": "message",
+            "name": "Pricing Info",
+            "message": "Our vehicles start from \u20b95.5L for hatchbacks to \u20b918L for top-end SUVs.\n\nWe offer flexible EMI & finance options. Want a callback from our advisor?",
+            "next_id": "lead_capture"
+        },
+        {
+            "id": "service",
+            "type": "message",
+            "name": "Service Booking",
+            "message": "Sure! We\u2019ll help schedule your car service appointment.",
+            "next_id": "lead_capture"
+        },
+        {
+            "id": "dealership",
+            "type": "message",
+            "name": "Find Dealership",
+            "message": "Please share your city so we can find the nearest dealership for you.",
+            "next_id": "lead_capture"
+        },
+        {
+            "id": "feedback",
+            "type": "question",
+            "name": "Feedback",
+            "question": "Please rate your experience from 1 (poor) to 5 (excellent):",
+            "choices": [
+                {
+                    "label": "1",
+                    "next_id": "end"
+                },
+                {
+                    "label": "2",
+                    "next_id": "end"
+                },
+                {
+                    "label": "3",
+                    "next_id": "end"
+                },
+                {
+                    "label": "4",
+                    "next_id": "end"
+                },
+                {
+                    "label": "5",
+                    "next_id": "end"
+                }
+            ]
+        },
+        {
+            "id": "human_agent",
+            "type": "message",
+            "name": "Escalation",
+            "message": "Please wait while we connect you to a customer care representative...",
+            "next_id": "end"
+        },
+        {
+            "id": "lead_capture",
+            "type": "form",
+            "name": "Lead Form",
+            "fields": [
+                {
+                    "label": "Full Name",
+                    "type": "text"
+                },
+                {
+                    "label": "City",
+                    "type": "text"
+                },
+                {
+                    "label": "Phone Number",
+                    "type": "phone"
+                },
+                {
+                    "label": "Interested Car Model",
+                    "type": "text"
+                }
+            ],
+            "next_id": "end"
+        },
+        {
+            "id": "end",
+            "type": "message",
+            "name": "Thank You",
+            "message": "\u2705 Thank you for connecting with DriveMax Motors! One of our team members will get in touch with you shortly.",
+            "next_id": null
+        }
+    ]
+}
